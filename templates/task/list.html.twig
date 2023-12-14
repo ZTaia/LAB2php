@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+        {% block body%}
+        <ul>
+        
+        {% for task in tasks%}
+            <li>
+                <div class="task">
+                    <a  href="{{path('app_task_view', {id: task.id}) }}">{{ task.name }}</a> Category:{{ task.category.name }} ||Date:{{ task.createdAt|date('d.m.Y') }}
+                    {% if app.user%}
+                    <a href="{{path('app_task_edit',{id:task.id})  }}" class="btn btn-primary-key">Update</a>
+                    <a href="{{path('app_task_delete',{id:task.id})  }}" class="btn btn-primary-key">Delete</a>
+                    {%endif%}
+                
+                </div>
+            </li>
+        {% endfor %}
+        
+        </ul>
+        {% endblock %}

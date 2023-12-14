@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+        {%block body%}
+        <div class="container">
+                <p>Name:{{task.name}}</p>
+                
+                    {%if task.description%}
+                        <p>Description:{{task.description}}</p>
+                        <p>Task_id:{{task.id}}</p>
+                        <p>Category:{{task.category.name}}</p>
+                        <p>Date: {{ task.Data|date('d.m.Y.') }}</p>
+                    {%endif%}
+                    {{messa}}
+        </div>
+            {%endblock %}
+
